@@ -1,0 +1,30 @@
+{
+  "customers": [
+    {
+      "firstName": "Daniel",
+      "lastName": "Purselley",
+      "customerId": "001",
+      "wishListItems": [
+        {
+          "books": [
+            {
+              "title": "asdfasdf",
+              "genre": "asdfasd",
+              "author": "aregt ase",
+              "bookId": "1001"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "books": [
+    {
+      "title": "asdfasdf",
+      "genre": "asdfasd",
+      "author": "aregt ase",
+      "bookId": "1001"
+    }
+  ]
+}
