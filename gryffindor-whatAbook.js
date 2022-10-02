@@ -53,7 +53,7 @@ db.createCollection("customers", {
 db.createCollection("books", {
   validator: {
     $jsonSchema: {
-      bsonType: "object",
+      bsonType: "array",
       properties: {
         title: {
           bsonType: "string",
@@ -77,65 +77,59 @@ johnMacro = {
   firstName: "John",
   lastName: "Macro",
   customerId: "01",
-  wishlistItems: [
-    {
-      books: [
-        {
-          title: "New York City",
-          genre: "Educational",
-          author: "Steve Van Winkle",
-          bookId: "1001",
-        },
-        {
-          title: "New Jersey",
-          genre: "Educational",
-          author: "Nancy Zack",
-          bookId: "1002",
-        },
-      ],
-    },
-  ],
+  wishlistItems: {
+    books: [
+      {
+        title: "New York City",
+        genre: "Educational",
+        author: "Steve Van Winkle",
+        bookId: "1001",
+      },
+      {
+        title: "New Jersey",
+        genre: "Educational",
+        author: "Nancy Zack",
+        bookId: "1002",
+      },
+    ],
+  },
 };
 
 rebeccaMacro = {
   firstName: "Rebecca",
   lastName: "Macro",
   customerId: "02",
-  wishlistItems: [
-    {
-      books: [
-        {
-          title: "New Jersey",
-          genre: "Educational",
-          author: "Nancy Zack",
-          bookId: "1002",
-        },
-      ],
-    },
-  ],
+  wishlistItems: {
+    books: [
+      {
+        title: "New Jersey",
+        genre: "Educational",
+        author: "Nancy Zack",
+        bookId: "1002",
+      },
+    ],
+  },
 };
 lucyMacro = {
   firstName: "Lucy",
   lastName: "Macro",
   customerId: "03",
-  wishlistItems: [
-    {
-      books: [
-        {
-          title: "New York City",
-          genre: "Educational",
-          author: "Steve Van Winkle",
-          bookId: "1001",
-        },
-        {
-          title: "Pennsylvania",
-          genre: "Educational",
-          author: "Rick Otto",
-          bookId: "1003",
-        },
-      ],
-    },
-  ],
+  wishlistItems: {
+    books: [
+      {
+        title: "New York City",
+        genre: "Educational",
+        author: "Steve Van Winkle",
+        bookId: "1001",
+      },
+      {
+        title: "Pennsylvania",
+        genre: "Educational",
+        author: "Rick Otto",
+        bookId: "1003",
+      },
+    ],
+  },
 };
 
 // Insert the customer documents
