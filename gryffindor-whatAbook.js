@@ -28,22 +28,26 @@ db.createCollection("customers", {
           bsonType: "string",
         },
         wishlistItems: {
-          books: [
-            {
-              title: {
-                bsonType: "string",
-              },
-              genre: {
-                bsonType: "string",
-              },
-              author: {
-                bsonType: "string",
-              },
-              bookId: {
-                bsonType: "string",
+          bsonType: "object",
+          properties: {
+            books: {
+              bsonType: "array",
+              properties: {
+                title: {
+                  bsonType: "string",
+                },
+                genre: {
+                  bsonType: "string",
+                },
+                author: {
+                  bsonType: "string",
+                },
+                bookId: {
+                  bsonType: "string",
+                },
               },
             },
-          ],
+          },
         },
       },
     },
@@ -53,7 +57,7 @@ db.createCollection("customers", {
 db.createCollection("books", {
   validator: {
     $jsonSchema: {
-      bsonType: "array",
+      bsonType: "object",
       properties: {
         title: {
           bsonType: "string",
