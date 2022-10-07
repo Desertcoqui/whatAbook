@@ -53,7 +53,7 @@ db.createCollection("customers", {
 db.createCollection("books", {
   validator: {
     $jsonSchema: {
-      bsonType: "array",
+      bsonType: "object",
       properties: {
         title: {
           bsonType: "string",
