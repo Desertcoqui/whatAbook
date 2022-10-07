@@ -28,22 +28,26 @@ db.createCollection("customers", {
           bsonType: "string",
         },
         wishlistItems: {
-          books: [
-            {
-              title: {
-                bsonType: "string",
-              },
-              genre: {
-                bsonType: "string",
-              },
-              author: {
-                bsonType: "string",
-              },
-              bookId: {
-                bsonType: "string",
+          bsonType: "object",
+          properties: {
+            books: {
+              bsonType: "array",
+              properties: {
+                title: {
+                  bsonType: "string",
+                },
+                genre: {
+                  bsonType: "string",
+                },
+                author: {
+                  bsonType: "string",
+                },
+                bookId: {
+                  bsonType: "string",
+                },
               },
             },
-          ],
+          },
         },
       },
     },
@@ -94,7 +98,6 @@ johnMacro = {
     ],
   },
 };
-
 rebeccaMacro = {
   firstName: "Rebecca",
   lastName: "Macro",
@@ -209,3 +212,36 @@ db.books.aggregate([{ $sort: { author: 1 } }]);
 
 //display books by bookId
 db.books.aggregate([{ $sort: { bookId: 1 } }]);
+
+//display wishlist by customer id
+db.customers.find({ customerId: "01" }, { wishlistItems: 1 });
+
+//add book to customers wishlistItems
+db.customers.updateOne(
+  { customerId: "01" },
+  {
+    $push: {
+      "wishlistItems.books": {
+        title: "Lord of the Rings",
+        genre: "Fantasy",
+        author: "J. R. R. Tolkien",
+        bookId: "6969",
+      },
+    },
+  }
+);
+
+//remove a book from a customer's wishlistItems
+db.customers.updateOne(
+  { customerId: "01" },
+  {
+    $pull: {
+      "wishlistItems.books": {
+        title: "Lord of the Rings",
+        genre: "Fantasy",
+        author: "J. R. R. Tolkien",
+        bookId: "6969",
+      },
+    },
+  }
+);
