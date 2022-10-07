@@ -23,7 +23,7 @@ for book in db.books.find({}, {'_id': 0, 'bookId': 0}):
     print(book)
 
 # print list of books based on user's selected genre
-user_Choice = input("Please enter a genre from above:")
+user_Choice = input("Please enter a genre from above:  ")
 if user_Choice == 'Educational' or user_Choice == 'horror' or user_Choice == 'drama':
     for book in db.books.find({'genre': user_Choice}, {'title': 1, 'genre': 1}):
         print(book)
@@ -31,3 +31,13 @@ else:
     print("The genre you provided is invalid")
 
 # display a customers wishlist
+
+customerWishlist = input(
+    "Type corresponding ID next to customers name for their Wish List. John Macro :01, Rebecca Macro: 02, Lucy Macro: 03:  ")
+
+# gives customer name with their wishlist upon entering corresponding customer ID
+if customerWishlist == '01' or customerWishlist == '02' or customerWishlist == '03':
+    for customer in db.customers.find({'customerId': customerWishlist}, {'firstName': 1, 'lastName': 1, 'wishlistItems': 1}):
+        print(customer)
+else:
+    print("The ID you provided is invalid")
