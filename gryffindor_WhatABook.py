@@ -40,4 +40,4 @@ if customerWishlist == '01' or customerWishlist == '02' or customerWishlist == '
     for customer in db.customers.find({'customerId': customerWishlist}, {'firstName': 1, 'lastName': 1, 'wishlistItems': 1}):
         print(customer)
 else:
-    print("The ID you provided is invalid")
+    print("The customerId you provided is invalid")
